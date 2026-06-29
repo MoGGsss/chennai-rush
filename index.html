@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Chennai Rush - Endless runner through the vibrant streets of Chennai. Dodge auto-rickshaws, collect coins, survive the chaos!" />
+  <meta name="theme-color" content="#FF6B35" />
+  <title>Chennai Rush — Endless Runner</title>
+  <!-- Fonts served locally — no internet required -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- THREE.js canvas target -->
+  <canvas id="game-canvas"></canvas>
+
+  <!-- ════════════════════════════════════════════════
+       LOADING SCREEN
+  ════════════════════════════════════════════════ -->
+  <div id="loading-overlay" class="overlay">
+    <div class="loading-content">
+      <div class="loading-rickshaw">🛺</div>
+      <div class="loading-title">CHENNAI RUSH</div>
+      <div class="loading-sub">Loading the streets of Namma Chennai…</div>
+      <div class="loading-bar-bg">
+        <div class="loading-bar-fill" id="loading-bar"></div>
+      </div>
+      <div class="loading-tip" id="loading-tip">Tip: Swipe UP to jump over obstacles!</div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       MAIN MENU
+  ════════════════════════════════════════════════ -->
+  <div id="menu-overlay" class="overlay hidden">
+    <div class="menu-bg-deco">
+      <div class="deco-rickshaw">🛺</div>
+      <div class="deco-palm">🌴</div>
+    </div>
+
+    <div class="menu-panel">
+      <div class="game-logo">
+        <span class="logo-chennai">CHENNAI</span>
+        <span class="logo-rush">RUSH</span>
+      </div>
+      <p class="logo-tagline">⚡ Survive the streets of Namma Chennai!</p>
+
+      <div class="best-score-box" id="menu-best-score">
+        <span class="best-icon">🏆</span>
+        <span>Best: <strong id="menu-best-val">0</strong></span>
+      </div>
+
+      <button id="btn-play" class="btn btn-primary">▶&nbsp; PLAY NOW</button>
+
+      <div class="controls-hints">
+        <div class="hint-row"><kbd>←</kbd><kbd>→</kbd> or <kbd>A</kbd><kbd>D</kbd> — Switch Lanes</div>
+        <div class="hint-row"><kbd>Space</kbd> or <kbd>↑</kbd> — Jump</div>
+        <div class="hint-row">📱 Swipe Left / Right / Up on mobile</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       HUD (in-game)
+  ════════════════════════════════════════════════ -->
+  <div id="hud-overlay" class="overlay hidden hud-mode">
+    <div class="hud-top">
+      <div class="hud-left">
+        <div class="hud-pill">
+          <span class="hud-icon">🪙</span>
+          <span id="hud-coin-count">0</span>
+        </div>
+        <div class="hud-pill">
+          <span class="hud-icon">📍</span>
+          <span id="hud-dist-count">0m</span>
+        </div>
+      </div>
+
+      <div class="hud-center">
+        <div class="hud-score-card">
+          <div class="score-label">SCORE</div>
+          <div id="hud-score" class="score-val">0</div>
+        </div>
+      </div>
+
+      <div class="hud-right">
+        <button id="btn-sound" class="icon-btn" title="Toggle Sound">🔊</button>
+        <div class="speed-card">
+          <div class="speed-label">SPEED</div>
+          <div class="speed-track">
+            <div id="speed-bar" class="speed-fill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       GAME OVER SCREEN
+  ════════════════════════════════════════════════ -->
+  <div id="gameover-overlay" class="overlay hidden">
+    <div class="gameover-panel">
+      <div class="go-crash-icon">💥</div>
+      <h1 class="go-title">GAME OVER</h1>
+      <p class="go-subtitle">The Chennai traffic won this time!</p>
+
+      <div id="go-new-record" class="new-record hidden">🏆 NEW HIGH SCORE!</div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Score</div>
+          <div class="stat-val" id="go-score">0</div>
+        </div>
+        <div class="stat-card highlight-card">
+          <div class="stat-label">Best</div>
+          <div class="stat-val primary" id="go-best">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Coins</div>
+          <div class="stat-val gold" id="go-coins">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Distance</div>
+          <div class="stat-val" id="go-dist">0m</div>
+        </div>
+      </div>
+
+      <div class="go-buttons">
+        <button id="btn-restart" class="btn btn-primary">🔄 &nbsp;PLAY AGAIN</button>
+        <button id="btn-to-menu" class="btn btn-ghost">🏠 &nbsp;MAIN MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts — order matters! -->
+  <!-- Three.js served locally — works fully offline -->
+  <script src="js/three.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/world.js"></script>
+  <script src="js/obstacles.js"></script>
+  <script src="js/coins.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
