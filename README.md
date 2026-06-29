@@ -104,3 +104,5 @@ Open D:\chennai-rush\index.html directly in Chrome
 ---
 
 *Built with ❤️ in Chennai style.*
+
+## Git Practice Session
